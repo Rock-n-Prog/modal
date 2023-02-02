@@ -1,6 +1,10 @@
-type BaseModalProps = Readonly<{
-  onSubmit?: () => unknown;
-  onCancel?: () => unknown;
-}>;
+import * as React from 'react';
+
+type BaseModalProps = Readonly<
+  React.PropsWithChildren<{
+    onSubmit?: () => unknown;
+    onCancel?: () => unknown;
+  }>
+>;
 
 export type { BaseModalProps };

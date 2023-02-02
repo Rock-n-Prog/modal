@@ -1,28 +1,12 @@
 import * as React from 'react';
+import type {BaseModalProps} from "../types/BaseModalProps";
+import type {ModalProviderConfig} from "../types/ModalProviderConfig";
 
-// TODO: Move this in types?
-type BaseModalProps = Readonly<{
-  onSubmit?: () => unknown;
-  onCancel?: () => unknown;
-}>;
-
-// TODO: Move this in types?
-type BaseContainerProps = Readonly<{
-  children: readonly (React.ReactNode | Element)[];
-}>;
-
-// TODO: Move this in types?
-type ModalProviderConfig<TModalProps extends BaseModalProps, TContainerProps extends BaseContainerProps, TBackdropProps> = Readonly<{
-  Modal: React.FC<TModalProps>;
-  Container: React.FC<TContainerProps>;
-  Backdrop: React.FC<TBackdropProps>;
+type ModalProviderProps<TModalProps extends BaseModalProps> = Readonly<{
+  config: ModalProviderConfig<TModalProps>;
 }>
 
-type ModalProviderProps<TModalProps extends BaseModalProps, TContainerProps extends BaseContainerProps, TBackdropProps> = Readonly<{
-  config: ModalProviderConfig<TModalProps, TContainerProps, TBackdropProps>;
-}>
-
-function ModalProvider<TModalProps extends BaseModalProps, TContainerProps extends BaseContainerProps, TBackdropProps>({ children, config }: React.PropsWithChildren<ModalProviderProps<TModalProps, TContainerProps, TBackdropProps>>) {
+function ModalProvider<TModalProps extends BaseModalProps>({ children, config }: React.PropsWithChildren<ModalProviderProps<TModalProps>>) {
   const [request, setRequest] = React.useState<TModalProps | null>(null);
 
   function showModal(request: TModalProps) {

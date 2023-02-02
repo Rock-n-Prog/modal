@@ -1,2 +1,1 @@
-export * from './contexts/ModalProvider';
-export * from './hooks/useModalContext';
+export * from './utils/createModalUtils';

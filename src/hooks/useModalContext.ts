@@ -1,8 +1,13 @@
 import * as React from 'react';
-import {ModalContext} from "../contexts/ModalProvider";
+import type {ModalContextProps} from "../contexts/ModalContext";
+import type {BaseModalProps} from "../types/BaseModalProps";
 
-function useModalContext() {
-  return React.useContext(ModalContext);
+function createUseModalContext<TModalProps extends BaseModalProps>(Context: React.Context<ModalContextProps<TModalProps>>) {
+  function useModalContext() {
+    return React.useContext(Context);
+  }
+
+  return useModalContext;
 }
 
-export { useModalContext };
+export { createUseModalContext };

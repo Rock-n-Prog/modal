@@ -20,7 +20,7 @@ pnpm install @rock-n-prog/react-modal
 Then, create a file to define your context provider and hook (like `src/utils/modals.ts`):
 
 ```ts
-import { createModalUtils } from '@rock-n-prog/';
+import { createModalUtils } from '@rock-n-prog/react-modal';
 
 // Import your own component definitions
 import { Modal } from '../components/Modal';

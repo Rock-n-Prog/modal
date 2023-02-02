@@ -1,0 +1,67 @@
+{
+  "name": "@rock-n-prog/react-modal",
+  "author": "Fabien Roy",
+  "version": "0.0.0",
+  "description": "Headless UI for modal tooling using React.",
+  "license": "MIT",
+  "homepage": "https://github.com/rock-n-prog/react-modal#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rock-n-prog/react-modal.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "react",
+    "modal",
+    "react-modal"
+  ],
+  "module": "build/lib/index.esm.js",
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/lib/index.d.ts",
+      "import": "./build/lib/index.mjs",
+      "default": "./build/lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "build/lib/*",
+    "build/umd/*",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "eslint --max-warnings 0 --fix ."
+  },
+  "devDependencies": {
+    "@types/react": ">=16",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@typescript-eslint/type-utils": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-functional": "^5.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prefer-type-alias": "^0.1.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.3",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  }
+}

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useModalContext } from '../utils/modals';
 
-// TODO: Stylize button
 function ShowModalButton() {
   const { showModal } = useModalContext();
 

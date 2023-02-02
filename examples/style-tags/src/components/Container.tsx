@@ -1,8 +1,16 @@
 import * as React from 'react';
 
-// TODO: Stylize Container
 function Container({ children }: React.PropsWithChildren) {
-  return <div>{children}</div>;
+  return (
+    <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 export { Container };

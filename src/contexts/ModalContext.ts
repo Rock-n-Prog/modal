@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BaseModalProps} from "../types/BaseModalProps";
+import type { BaseModalProps } from '../types/BaseModalProps';
 
-type ModalContextProps<TModalProps extends BaseModalProps> = {
-  readonly showModal: (request: TModalProps) => void;
-  readonly hideModal: () => void;
-};
+type ModalContextProps<TModalProps extends BaseModalProps> = Readonly<{
+  showModal: (request: TModalProps) => void;
+  hideModal: () => void;
+}>;
 
 function createModalContext<TModalProps extends BaseModalProps>() {
   return React.createContext<ModalContextProps<TModalProps>>({

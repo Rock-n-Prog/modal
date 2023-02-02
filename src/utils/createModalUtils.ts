@@ -1,12 +1,12 @@
-import type { BaseModalProps } from "../types/BaseModalProps";
-import {createModalContext} from "../contexts/ModalContext";
-import {ModalProviderConfig} from "../types/ModalProviderConfig";
-import {createModalProvider} from "../providers/ModalProvider";
-import {createUseModalContext} from "../hooks/useModalContext";
+import type { BaseModalProps } from '../types/BaseModalProps';
+import { createModalContext } from '../contexts/ModalContext';
+import { ModalProviderConfig } from '../types/ModalProviderConfig';
+import { createModalProvider } from '../providers/ModalProvider';
+import { createUseModalContext } from '../hooks/useModalContext';
 
-type CreateModalUtilsParams<TModalProps extends BaseModalProps> = {
-  readonly config: ModalProviderConfig<TModalProps>;
-};
+type CreateModalUtilsParams<TModalProps extends BaseModalProps> = Readonly<{
+  config: ModalProviderConfig<TModalProps>;
+}>;
 
 function createModalUtils<TModalProps extends BaseModalProps>({ config }: CreateModalUtilsParams<TModalProps>) {
   const ModalContext = createModalContext<TModalProps>();

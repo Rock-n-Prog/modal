@@ -1,14 +1,18 @@
 import * as React from 'react';
-import type {BaseModalProps} from "../types/BaseModalProps";
-import type {ModalProviderConfig} from "../types/ModalProviderConfig";
-import type { ModalContextProps } from "../contexts/ModalContext";
+import type { BaseModalProps } from '../types/BaseModalProps';
+import type { ModalProviderConfig } from '../types/ModalProviderConfig';
+import type { ModalContextProps } from '../contexts/ModalContext';
 
 type ModalProviderProps<TModalProps extends BaseModalProps> = Readonly<{
   config: ModalProviderConfig<TModalProps>;
   Context: React.Context<ModalContextProps<TModalProps>>;
-}>
+}>;
 
-function ModalProvider<TModalProps extends BaseModalProps>({ children, config, Context }: React.PropsWithChildren<ModalProviderProps<TModalProps>>) {
+function ModalProvider<TModalProps extends BaseModalProps>({
+  children,
+  config,
+  Context,
+}: React.PropsWithChildren<ModalProviderProps<TModalProps>>) {
   const [request, setRequest] = React.useState<TModalProps | null>(null);
 
   function showModal(request: TModalProps) {
@@ -34,10 +38,10 @@ function ModalProvider<TModalProps extends BaseModalProps>({ children, config, C
       <config.Container>
         {children}
         {request && (
-            <>
-              <config.Backdrop />
-              <config.Modal {...request} onSubmit={handleSubmit} onCancel={handleCancel} />
-            </>
+          <>
+            <config.Backdrop />
+            <config.Modal {...request} onSubmit={handleSubmit} onCancel={handleCancel} />
+          </>
         )}
       </config.Container>
     </Context.Provider>
@@ -45,7 +49,11 @@ function ModalProvider<TModalProps extends BaseModalProps>({ children, config, C
 }
 
 function createModalProvider<TModalProps extends BaseModalProps>({ config, Context }: ModalProviderProps<TModalProps>) {
-  return ({ children }: React.PropsWithChildren) => <ModalProvider config={config} Context={Context}>{children}</ModalProvider>;
+  return ({ children }: React.PropsWithChildren) => (
+    <ModalProvider config={config} Context={Context}>
+      {children}
+    </ModalProvider>
+  );
 }
 
 export { createModalProvider };

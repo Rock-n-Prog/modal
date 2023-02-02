@@ -1,4 +1,3 @@
-
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -32,12 +31,18 @@ module.exports = {
     'import/first': 'warn',
     'import/exports-last': 'warn',
     'import/named': 'off',
-    'functional/no-class': 'error',
+    'functional/no-classes': 'error',
     'functional/no-return-void': 'off',
-    'functional/no-expression-statement': 'off',
+    'functional/no-expression-statements': 'off',
     'functional/functional-parameters': 'off',
     'functional/no-conditional-statement': 'off',
     'functional/no-mixed-type': 'off',
+    'functional/prefer-immutable-types': [
+      'off',
+      {
+        enforcement: 'ReadonlyShallow',
+      },
+    ],
     'react/display-name': 'off',
     'react/prop-types': 'off',
   },
@@ -45,6 +50,7 @@ module.exports = {
     {
       files: ['**/*.js'],
       rules: {
+        'no-undef': 'off',
         'functional/no-expression-statement': 'off',
         'functional/immutable-data': 'off',
         '@typescript-eslint/no-var-requires': 'off',

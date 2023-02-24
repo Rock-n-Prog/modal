@@ -1,5 +1,7 @@
 # @rock-n-prog/react-modal
 
+# **Know that this project doesn't work at all at the moment, I'm still learning to develop a React package. This is my first npm package, plz don't hate <3**
+
 Headless UI for modal tooling using React
 
 ## Features
